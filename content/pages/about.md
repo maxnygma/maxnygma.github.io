@@ -4,7 +4,7 @@ template: "page"
 socialImage: "/media/image-2.jpg"
 ---
 
-I'm Maksim Zhdanov, 17 y.o machine learning engineer from small provincial town in cold Siberia, Russia. Currently I'm studying in 11th grade in my school. 
+I'm Maksim Zhdanov, 18 y.o machine learning engineer from small provincial town in cold Siberia, Russia. Currently I'm studying in 11th grade in my school. 
 My main field of interest is computer vision. I keen on solving difficult ML / DL problems.
 
 ### Data Science
