@@ -8,12 +8,11 @@ I'm Maksim Zhdanov, 18 y.o machine learning engineer from small provincial town 
 My main field of interest is computer vision. I keen on solving difficult ML / DL problems.
 
 ### Data Science
-I started my data science journey in the early 2020 with simple classification tasks.
-Then I took part in my first competition and it motivated me to learn faster and faster. Competitive machine learning became one of the most
-captivating activities for me as I was learning many new approaches for various tasks. I have worked with image classification, text sequence classification, 
-object detection, image captioning, optical character recognition (OCR), signal processing, tabular data processing and time-series forecasting problems.
-<br><br>
-Also I'm developing "AI Workbench" platform for easy, fast and convenient training of various models with various types of data. I'm planning to release an MVP in the fall of 2021
-with my collaborators.
+I started my data science journey in the early 2020.
+I took part in my first machine learning competition on Kaggle, it was fun and I continued to participate. I have worked with wide range of tasks in various ML fields from 
+image and text to audio and model optimization.
 <br><br>
 Moreover, I'm intrested in conducting research and taking part in conferences. Got a "Best ODS Speaker 2020 Award" from ODS.ai community for my talk on DataFest 2020.
+
+### Hobbies
+I'm into blockchain and cyber security tech, especially OSINT. Love to play basketball and go to gym.

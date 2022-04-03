@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  url: 'https://xzcodes.github.io',
+  url: 'https://maxnygma.github.io',
   pathPrefix: '/',
   title: 'Maksim Zhdanov',
   subtitle: '',
@@ -23,13 +23,13 @@ module.exports = {
   author: {
     name: 'Maksim Zhdanov',
     photo: '/me.jpg',
-    bio: `Machine Learning Engineer, Kaggle Competitions Expert, developing MLAAS platform, constantly learning and exploring new things.`,
+    bio: `Software Engineer, Kaggle Competitions Expert, constantly learning and exploring new things.`,
     contacts: {
       email: 'dwdcodes@gmail.com',
       facebook: '',
-      telegram: 'xzcodes',
+      telegram: 'maxnygma',
       twitter: '',
-      github: '/xzcodes',
+      github: '/maxnygma',
       rss: '',
       vkontakte: '',
       linkedin: 'maksim-zhdanov-2a2b7819a/',
@@ -40,7 +40,7 @@ module.exports = {
       codepen: '',
       youtube: '',
       soundcloud: '',
-      medium: 'xzcodes',
+      medium: 'maxnygma',
       kaggle: 'dwdkills',
     }
   }
