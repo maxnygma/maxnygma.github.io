@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://xzcodes.github.io/tags</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/categories</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/pages/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/posts/paper-review-swin-transformer</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/posts/aijourney2020</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/tag/computer-vision</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/tag/contests-solutions</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/tag/image-classification</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/tag/instance-segmentation</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/tag/ocr</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/tag/object-detection</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/tag/semantic-segmentation</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/category/competitions</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/category/paper-review</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://xzcodes.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tags</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/categories</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/pages/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/posts/aijourney2020</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/posts/paper-review-swin-transformer</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tag/computer-vision</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tag/contests-solutions</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tag/image-classification</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tag/instance-segmentation</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tag/ocr</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tag/object-detection</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tag/semantic-segmentation</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/category/competitions</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/category/paper-review</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
