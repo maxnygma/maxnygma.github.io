@@ -1,4 +1,187 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Maksim Zhdanov]]></title><description><![CDATA[Maksim Zhdanov]]></description><link>https://maxnygma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 03 Apr 2022 07:43:20 GMT</lastBuildDate><item><title><![CDATA[Paper Review: Swin Transformer: Hierarchical Vision Transformer using Shifted Windows]]></title><description><![CDATA[My review of the paper Swin Transformer: Hierarchical Vision Transformer using Shifted Windows]]></description><link>https://maxnygma.github.io/posts/paper-review-swin-transformer</link><guid isPermaLink="false">https://maxnygma.github.io/posts/paper-review-swin-transformer</guid><pubDate>Sat, 27 Mar 2021 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/2103.14030&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Paper link&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Maksim Zhdanov]]></title><description><![CDATA[Maksim Zhdanov]]></description><link>https://maxnygma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 16 Jun 2022 07:42:14 GMT</lastBuildDate><item><title><![CDATA[Models and Upscaling — Image Matching Challenge 2022]]></title><description><![CDATA[In this article I'm going to discuss the field on stereo matching and make a recap of solution our team made for the Image Matching Challenge 2022 from Google Research]]></description><link>https://maxnygma.github.io/posts/imagematching2022</link><guid isPermaLink="false">https://maxnygma.github.io/posts/imagematching2022</guid><pubDate>Sun, 12 Jun 2022 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;I’m excited to say that our team (Kenjiro, Ohta and me) finished &lt;strong&gt;17th&lt;/strong&gt; in Image Matching Challenge 2022 from Google Research. The topic of stereo matching and,
+generally, 3D computer vision was new to me, but I managed to try some great methods I’d like to share with you.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a289f3fe5c931ac7b4c65c87b34a19e8/21b4d/image_matching.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.58333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAABJ0AAASdAHeZh94AAABnElEQVQoz01Sy1LDMAzs//8eHChth5JA0jaUuHH8kmWbtcUEdPCMJa12tfYuI1KKiQORXQ1upRTnbDdetHXMKadIbkbWWsvMMcaUEhGhbVexnDinQAFlAa+r7Y7jrNTt/lVKDmYqDSwwjPgHTqnkHINbV631khM567ruZo1zLpR6V2j13kszAvwVLEoiUwheqYdkydvD+/28f78M36Ukr29NzooqRgASwn/mOoxQRqGSmPV6fi0tsFVwSzPCiew/5rYzQ3c1zFgBo/9zOPbXK4RjI7BtYG7xu3Mdw5w5Bu+XRVfDcoaD0/2hHpYT3E6wSmQLrMkOv8zoKNBBYdG6rgCSELteDR/jZRg81T1zY96eCieADQzmnDHSOS97Qty+Gw/788vTXjtPjUdkb+DKPE1TRXJE7bsFngva3w59d/rk2skCw7m5LbbtoB5SAEZWKTXPMzJE4en5dLur3BwCDATYHGBUZUSVvRkWieZZicJg9Nh1MdWNhBNJY4wI/nMb1ep9YookrsrfPvf9dX4cT2/Wefwf8Ihh2zsj8wN8kfSp1qPC9gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/a289f3fe5c931ac7b4c65c87b34a19e8/8ac56/image_matching.webp 240w,
+/static/a289f3fe5c931ac7b4c65c87b34a19e8/d3be9/image_matching.webp 480w,
+/static/a289f3fe5c931ac7b4c65c87b34a19e8/e46b2/image_matching.webp 960w,
+/static/a289f3fe5c931ac7b4c65c87b34a19e8/af3f0/image_matching.webp 1280w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/a289f3fe5c931ac7b4c65c87b34a19e8/8ff5a/image_matching.png 240w,
+/static/a289f3fe5c931ac7b4c65c87b34a19e8/e85cb/image_matching.png 480w,
+/static/a289f3fe5c931ac7b4c65c87b34a19e8/d9199/image_matching.png 960w,
+/static/a289f3fe5c931ac7b4c65c87b34a19e8/21b4d/image_matching.png 1280w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/a289f3fe5c931ac7b4c65c87b34a19e8/d9199/image_matching.png&quot;
+            alt=&quot;collage&quot;
+            title=&quot;collage&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;overview&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#overview&quot; aria-label=&quot;overview permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This part was taken from the &lt;a href=&quot;https://www.kaggle.com/competitions/image-matching-challenge-2022/overview/problem-definition&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;page&lt;/a&gt; of problem definition from Image Matching Challenge. &lt;/p&gt;
+&lt;h3 id=&quot;problem-definition&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#problem-definition&quot; aria-label=&quot;problem definition permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Problem Definition&lt;/h3&gt;
+&lt;p&gt;The goal is to predict the relative pose between two images.&lt;/p&gt;
+&lt;p&gt;Important concepts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Calibration matrix&lt;/em&gt; &lt;strong&gt;K&lt;/strong&gt; captures camera properties that determine the transformation between 3D points and 2D coordinates (camera intrinsics).&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Rotation matrix&lt;/em&gt; &lt;strong&gt;R&lt;/strong&gt; and &lt;em&gt;translation matrix&lt;/em&gt; &lt;strong&gt;T&lt;/strong&gt; capture the 6-degree-of-freedom pose (position and orientation) of the camera in a global reference frame (camera extrinsics).&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Fundamental matrix&lt;/em&gt; &lt;strong&gt;F&lt;/strong&gt; encapsulates the projective geometry between two views of the same scene. Content of the scence does not affect the result. Only intristics and extristics matter.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;projective-geometry&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#projective-geometry&quot; aria-label=&quot;projective geometry permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Projective Geometry&lt;/h3&gt;
+&lt;p&gt;Projective geometry in computer vision deals with transformations between 3D (world) and 2D (image) perspectives. Example with the &lt;em&gt;pinhole camera&lt;/em&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;&lt;img src=&quot;https://kornia.readthedocs.io/en/latest/_images/pinhole_model.png&quot; alt=&quot;pinhole camera&quot;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;em&gt;Pinhole camera. Image belongs to &lt;a href=&quot;https://kornia.readthedocs.io/en/latest/geometry.camera.pinhole.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Kornia&lt;/a&gt;.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The projection of a 3D point &lt;strong&gt;M(i)&lt;/strong&gt;, in meters, into 2D coordinates &lt;strong&gt;m(i)&lt;/strong&gt;, in pixels, can be simpy written as &lt;strong&gt;m(i) = KM(i)&lt;/strong&gt;,
+where &lt;strong&gt;K&lt;/strong&gt; is the calibration of insintrics matrix:&lt;/p&gt;
+&lt;img src=&quot;https://latex.codecogs.com/svg.image?K=\begin{pmatrix}f(x)&amp;amp;space;&amp;amp;&amp;amp;space;0&amp;amp;space;&amp;amp;&amp;amp;space;u(0)&amp;amp;space;\\0&amp;amp;space;&amp;amp;&amp;amp;space;f(y)&amp;amp;space;&amp;amp;&amp;amp;space;v(0)&amp;amp;space;\\0&amp;amp;space;&amp;amp;&amp;amp;space;0&amp;amp;space;&amp;amp;&amp;amp;space;1&amp;amp;space;\\\end{pmatrix}&quot; alt=&quot;Pinhole camera&quot; width=&quot;200&quot; style=&quot;background-color:white;&quot;&gt;
+&lt;p&gt;Where &lt;strong&gt;f(x), f(y)&lt;/strong&gt; are the &lt;em&gt;focal lengths&lt;/em&gt; on &lt;strong&gt;x&lt;/strong&gt; and &lt;strong&gt;y&lt;/strong&gt;, and &lt;strong&gt;u(0), v(0)&lt;/strong&gt; are &lt;em&gt;principal point offsets&lt;/em&gt;. The images have no radial distortion.&lt;/p&gt;
+&lt;p&gt;However, that equation is only valid for 3D points in camera’s coordinate system. Given points in the “world” coordinate system (common across the different cameras in the scene), and a camera at the position encoded by &lt;strong&gt;3 x 3&lt;/strong&gt; rotation matrix &lt;strong&gt;R&lt;/strong&gt; and a 3-dimensional translation vector &lt;strong&gt;T&lt;/strong&gt;, the projection can be written as:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;m(i) = K(RM(i) + T)&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;epipolar-geometry&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#epipolar-geometry&quot; aria-label=&quot;epipolar geometry permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Epipolar Geometry&lt;/h3&gt;
+&lt;p&gt;Epipolar geometry is the projective geometry between two views. It depends only on extrinsics and intrinsics. In computer vision, this relationship is tipically expressed as the fundamental matrix, a &lt;strong&gt;3 x 3&lt;/strong&gt; matrix of rand 2. Given a 3D point &lt;strong&gt;M(i)&lt;/strong&gt;, in meters, and its projections on two different cameras &lt;strong&gt;m(i)&lt;/strong&gt; and &lt;strong&gt;m’(i)&lt;/strong&gt;, in pixels, the fundamental matrix for these two views &lt;strong&gt;F&lt;/strong&gt; must satisfy:&lt;/p&gt;
+&lt;img src=&quot;https://latex.codecogs.com/svg.image?{m_{i}&apos;}^{T}Fm_{i}&amp;amp;space;=&amp;amp;space;0&quot; alt=&quot;Pinhole camera&quot; width=&quot;200&quot; style=&quot;background-color:white;&quot;&gt;
+&lt;h2 id=&quot;approaching-image-matching&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#approaching-image-matching&quot; aria-label=&quot;approaching image matching permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Approaching Image Matching&lt;/h2&gt;
+&lt;p&gt;Classical stereo matching pipeline consists of:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Feature extraction (handcraftred feature, deep learning descriptors or end-to-end pipelines).&lt;/li&gt;
+&lt;li&gt;Feature matching by nearest-neighbor search in descriptor space.&lt;/li&gt;
+&lt;li&gt;Outlier pre-filtering (optional)&lt;/li&gt;
+&lt;li&gt;Outlier filtering with RANSAC&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;feature-extraction&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#feature-extraction&quot; aria-label=&quot;feature extraction permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Feature Extraction&lt;/h3&gt;
+&lt;p&gt;There are many ways to extract features from an image. At first, you can use handcrafted descriptors like SIFT, ORB or AKAZE. They are clearly
+outperformed by modern deep learning methods, but at the same time they are great as a starting point.&lt;/p&gt;
+&lt;p&gt;SIFT is a timeless classic invented by David Lowe in 1999. Briefly, it finds points of interest in an image and computes Difference of Gaussians (DoG) to finally determine desciptors.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;&lt;img src=&quot;https://docs.opencv.org/4.x/sift_dog.jpg&quot; alt=&quot;sift&quot;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;em&gt;SIFT. Image belongs to OpenCV.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Then you can try more recent methods which consists of descriptors learned on DoG keypoints like L2-Net, Hardnet, Geodesc or SOS-Net. Also
+there are some end-to-end solutions like Superpoint or R2D2.&lt;/p&gt;
+&lt;h3 id=&quot;outlier-pre-filtering&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#outlier-pre-filtering&quot; aria-label=&quot;outlier pre filtering permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Outlier Pre-Filtering&lt;/h3&gt;
+&lt;p&gt;Outlier pre-filtering is an optional step in which you can use neural networks-based models to remove some outliers before feeding matches into RANSAC.
+We tried a combination of DISK + OANet in our solution, where OANet was used for additional outlier detection. Unfortunately, we did not succeed with
+this approach.&lt;/p&gt;
+&lt;h3 id=&quot;ransac&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ransac&quot; aria-label=&quot;ransac permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;RANSAC&lt;/h3&gt;
+&lt;p&gt;Main method for outlier filtering is RANSAC. It runs iteratively over a set of keypoints. For futher details refer to &lt;a href=&quot;https://en.wikipedia.org/wiki/Random_sample_consensus&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;wiki page&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;our-solution&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#our-solution&quot; aria-label=&quot;our solution permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Our solution&lt;/h2&gt;
+&lt;p&gt;Main idea of our solution is about using multiple models by concatenating acquired keypoints and then run RANSAC on top of them. &lt;/p&gt;
+&lt;h3 id=&quot;modeling&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#modeling&quot; aria-label=&quot;modeling permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Modeling&lt;/h3&gt;
+&lt;p&gt;Our solution includes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;LoFTR DS and OT&lt;/strong&gt;. LoFTR is SOTA-level transformer-based model for image matching proposed in this [&lt;a href=&quot;https://arxiv.org/pdf/2104.00680.pdf&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;paper&lt;/a&gt;], check it out.
+There are two variations Dual-Softmax and Optimal Transport (DS and OT). Our team used default settings for DS model and 0.55 match_coarse threshold for OT.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SuperPoint/SuperGlue&lt;/strong&gt;. That’s a classical combination which has an amazing performance [&lt;a href=&quot;https://arxiv.org/pdf/1911.11763.pdf&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;paper&lt;/a&gt;]. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DKM&lt;/strong&gt;. Geometric matching approach [&lt;a href=&quot;https://arxiv.org/pdf/2202.00667.pdf&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;paper&lt;/a&gt;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MatchFormer-LargeLA&lt;/strong&gt;. Another SOTA transformer-based model. Refer to &lt;a href=&quot;https://arxiv.org/pdf/2203.09645.pdf&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;[paper]&lt;/a&gt;. Similarly to LoFTR for this
+model we used 0.55 match_coarse threshold.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;upscaling-with-lanczos-interpolation-over-8×8-pixel-neighborhood&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#upscaling-with-lanczos-interpolation-over-8%C3%978-pixel-neighborhood&quot; aria-label=&quot;upscaling with lanczos interpolation over 8×8 pixel neighborhood permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Upscaling with Lanczos interpolation over 8×8 pixel neighborhood&lt;/h3&gt;
+&lt;p&gt;Part which had the biggest impact on our solution was &lt;strong&gt;upscaling&lt;/strong&gt; with Lanczos interpolation. Generally speaking, we upscaled images for all of our models except MatchFormer by a factor of &lt;strong&gt;1.5x&lt;/strong&gt;, and then made them divisible by 8. In the end, position of keypoints was adjusted using the same scale factor. We think that CNNs used in many models, especially in LoFTR, can simply extract richer local features from upscaled images.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;img &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cv2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;resize&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fx&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1.5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fy&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1.5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; interpolation&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;cv2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;INTER_LANCZOS4&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+w&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; h &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;shape&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;shape&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+w&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; h &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; w &lt;span class=&quot;token operator&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; h &lt;span class=&quot;token operator&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;
+
+img &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; img&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;h&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;w&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;outlier-detection&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#outlier-detection&quot; aria-label=&quot;outlier detection permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Outlier detection&lt;/h3&gt;
+&lt;p&gt;For outlier detection we incorporated simple MAGSAC from OpenCV:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;cv2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;findFundamentalMat&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;keypoints_1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; keypoints_2&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; cv2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;USAC_MAGSAC&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ransacReprojThreshold&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0.25&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; confidence&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0.99999&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; maxIters&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;100000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;what-did-not-work-for-us&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-did-not-work-for-us&quot; aria-label=&quot;what did not work for us permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What did not work for us?&lt;/h3&gt;
+&lt;p&gt;Here’s a list of things which unfortunately didn’t improve our score:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SuperGlue re-training or fine-tuning (we did this to combine it with DISK descriptors)&lt;/li&gt;
+&lt;li&gt;DISK + OANet&lt;/li&gt;
+&lt;li&gt;Calculating additional keypoints from rotated images&lt;/li&gt;
+&lt;li&gt;Inverse image order for LoFTR&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;example&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#example&quot; aria-label=&quot;example permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Example&lt;/h2&gt;
+&lt;p&gt;A small example of how our solution perform:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 886px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8cc02aa06043990398c053103f8dc39d/cc155/keypoints.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 85.41666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAABJ0AAASdAHeZh94AAAD+klEQVQ4y1XRe0xTVxgA8AulBRnSUqCFAqWlpYWWV6W8wQsTFMUXBMwccW6LcRv7T9zMBsEhmwgYnYtjmbJsCxDdxjSRgEPjpOXRsoIVUB6TCpWWtrRFSuHe9t72nhXGH9uX73z/nPPL951zIIIg1uwIgjoxHEcdmCfx/wTiwDZQ5waKIZtbuOeUw7lZ1zcQAADkWdqllSUzuoa6NLo1o9WBOF2eJACw29dmtZaXy455k2PRjC1ZcOMqbtlw61fsi+aVTYxjmFZnNphRgxVTv7CaXuN6C/bKhNodwGSxTmmMBhvQr7iNNmC2g9cIWMOA3mqb0y663W5PZ0I9Y5haWJ03bCifLxtWnDbUfUe2IJ+wjk2+HJvQWNaByUaY1wkL4l51EfPLxocD8ifq8S3sxnuHNd3Dujty7b1hnXLa2jWo++r2ZGvP/G89ir/Gnq86gNHmNKKoCUdM+PqVtpbPqqu+rK52uVybd27vfVp3c/jGfU3L3dmmrqlPfhqv65y8p1q+e/9Rv1JuA4QesRkQGwqIzu5fwvnUxPSwgnyp27XVWaZ+1dCuaugYbfx99mqftm/a3P1scWDe2PLDjfPNn7b1tF1/9E2noeM2+PXwwMG03oTcvsx3Lp4kMAICBDEz87fqybMHckVVbc3hqg+bf7zcrrj1/WTHuaeNh/4sgVW58Au4cCGv3F6WOp5aNrxvz3e7K+vfInBic+yfW6+9f7rkg2sVx74tEDZGJncJMibTpPr0LLMUXsqEp3OPTByqXT7z0eCJg1dzKs7A5aUZH5+o2BobgIaWzyW3BNmrmbn2LFiXWTiRfeABnHklJbQ8pOxs0fFTBypPll1quFCSsVtEDefTwgIgckJc/L9fBVpvNlfWw8fPwsKiaLhi/569xaV7i3cJxCTIO0GctDsnIz87heRPgsgQhULyJnlDEMTlcrdx/bmaVAYvV5DqT/KjRkclvpkXLhGxJXESWBqfkhDGZoVHhoUwgndQyMwgqp8vxYP5PN42Pl//BTs+uvBIUU5BVtP1r0vfrmDFcZLhtKOnjkrypWFRrCAqPSCQSfYJ9EhfP9//4brauvj0+IzStP2ni9+98B5vX4yX0CsgLZCeF8rP4QuSBBwRJzQqdCeD6kPxiaTT6P5+MbyYbXzpYlNStiTnWJ4oTxzCDwlg7qQxgsgUH2/Ii8vmCoXC2Fh+LJ/H4bCZTEY0IziKFigWi7ZxTU0tjxu7K1EqFiUJhXF0Bv0NeoAX2cvzQiwei81hR0ZERrAimExmcDCdRgvc4UdOTk7cxnNzGqVSqVarFaOKQdXQyOjIwNBA38M/Hssfj6hGFApFf3//yFbIZDK5XDY0NDg2NkoQ4B8L5j+kZnE8ogAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/8cc02aa06043990398c053103f8dc39d/8ac56/keypoints.webp 240w,
+/static/8cc02aa06043990398c053103f8dc39d/d3be9/keypoints.webp 480w,
+/static/8cc02aa06043990398c053103f8dc39d/b4685/keypoints.webp 886w&quot;
+              sizes=&quot;(max-width: 886px) 100vw, 886px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/8cc02aa06043990398c053103f8dc39d/8ff5a/keypoints.png 240w,
+/static/8cc02aa06043990398c053103f8dc39d/e85cb/keypoints.png 480w,
+/static/8cc02aa06043990398c053103f8dc39d/cc155/keypoints.png 886w&quot;
+            sizes=&quot;(max-width: 886px) 100vw, 886px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/8cc02aa06043990398c053103f8dc39d/cc155/keypoints.png&quot;
+            alt=&quot;keypoints&quot;
+            title=&quot;keypoints&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Paper Review: Swin Transformer: Hierarchical Vision Transformer using Shifted Windows]]></title><description><![CDATA[My review of the paper Swin Transformer: Hierarchical Vision Transformer using Shifted Windows]]></description><link>https://maxnygma.github.io/posts/paper-review-swin-transformer</link><guid isPermaLink="false">https://maxnygma.github.io/posts/paper-review-swin-transformer</guid><pubDate>Sat, 27 Mar 2021 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/2103.14030&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Paper link&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Code available &lt;a href=&quot;https://github.com/microsoft/Swin-Transformer&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt; (no implementation at the moment of writing this review)&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;

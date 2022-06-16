@@ -5,13 +5,17 @@
 <url> <loc>https://maxnygma.github.io/pages/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/posts/aijourney2020</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/posts/paper-review-swin-transformer</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/posts/imagematching2022</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tag/3-d</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/tag/computer-vision</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/tag/contests-solutions</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/tag/image-classification</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tag/image-matching</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/tag/instance-segmentation</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/tag/ocr</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/tag/object-detection</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/tag/semantic-segmentation</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://maxnygma.github.io/tag/stereo-matching</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/category/competitions</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/category/paper-review</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://maxnygma.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
