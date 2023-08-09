@@ -1,0 +1,25 @@
+body {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-family: "PT Sans", Calibri, Tahoma, sans-serif;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.text {
+    flex: 1;
+    margin-right: 10rem;
+    font-size: large;
+}
+.image {
+    flex: 0.8;
+    margin-top: 5rem;
+    margin-left: 0rem;
+}
+.contacts {
+    padding-top: 10rem;
+}
