@@ -30,6 +30,7 @@ body {
         flex-direction: column;
     }
     .text {
+        width: 100%;
         order: 2;
     }
     .image {
