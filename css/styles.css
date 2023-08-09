@@ -11,11 +11,13 @@ body {
     width: 100%;
 }
 .text {
+    order: 1;
     flex: 1;
     margin-right: 10rem;
     font-size: large;
 }
 .image {
+    order: 2;
     flex: 0.8;
     margin-top: 5rem;
     margin-left: 0rem;
@@ -23,3 +25,15 @@ body {
 .contacts {
     padding-top: 10rem;
 }
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .text {
+        order: 2;
+    }
+    .image {
+        order: 1;
+    }
+}
+
